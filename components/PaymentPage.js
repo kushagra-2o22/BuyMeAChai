@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import Script from 'next/script'
 import { useSession } from 'next-auth/react'
 import { fetchuser, fetchpayments, initiate } from '@/actions/useractions'
@@ -50,12 +50,19 @@ const PaymentPage = ({ username }) => {
 
     }
 
-    const getData = async () => {
+    const getData = useCallback(async () => {
         let u = await fetchuser(username)
         setcurrentUser(u)
         let dbpayments = await fetchpayments(username)
         setPayments(dbpayments)
-    }
+    }, [username])
+
+    // const getData = async () => {
+    //     let u = await fetchuser(username)
+    //     setcurrentUser(u)
+    //     let dbpayments = await fetchpayments(username)
+    //     setPayments(dbpayments)
+    // }
 
     const pay = async (amount) => {
         

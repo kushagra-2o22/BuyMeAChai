@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import { useSession, signIn, signOut } from "next-auth/react"
 import { useRouter } from 'next/navigation'
 import { fetchuser, updateProfile } from '@/actions/useractions'
@@ -20,17 +20,25 @@ const Dashboard = () => {
         }
     }, [getData, router, session])
 
-    const getData = async () => {
-        let u = await fetchuser(session.user.name)
-        setform(u)
-    }
+    // const getData = async () => {
+    //     let u = await fetchuser(session.user.name)
+    //     setform(u)
+    // }
+    const getData = useCallback(async () => {
+        if (session) {
+            let u = await fetchuser(session.user.name)
+            setform(u)
+        }
+    }, [session])
 
     const handleChange = (e) => {
         setform({ ...form, [e.target.name]: e.target.value })
     }
 
     const handleSubmit = async (e) => {
-        let a = await updateProfile(e, session.user.name)
+        e.preventDefault(); // Prevent default form submission
+        await updateProfile(form, session.user.name)
+        // let a = await updateProfile(e, session.user.name)
         toast.success('Profile updated 🪟!', {
             position: "top-right",
             autoClose: 5000,
