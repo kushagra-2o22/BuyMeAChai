@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const connectDb = async () => {
     try {
-      const conn = await mongoose.connect(process.env.MONGODB_URI, {
+      const conn = await mongoose.connect(`mongodb+srv://kushagracssingh:v7NJ26AOReoJudLT@cluster0.nfrmgay.mongodb.net/chai`, {
         useNewUrlParser: true,
       });
       console.log(`MongoDB Connected: {conn.connection.host}`);
@@ -11,5 +11,5 @@ const connectDb = async () => {
       process.exit(1);
     }
   }
-
+  
   export default connectDb

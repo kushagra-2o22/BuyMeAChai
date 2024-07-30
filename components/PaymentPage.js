@@ -23,7 +23,7 @@ const PaymentPage = ({ username }) => {
 
     useEffect(() => {
         getData()
-    }, [getData])
+    }, [])
 
     useEffect(() => {
         if (searchParams.get("paymentdone") == "true") {
@@ -42,7 +42,7 @@ const PaymentPage = ({ username }) => {
 
         router.push(`${username}`)
 
-    }, [router, searchParams, username])
+    }, [])
 
 
     const handleChange = (e) => {
@@ -50,19 +50,19 @@ const PaymentPage = ({ username }) => {
 
     }
 
-    const getData = useCallback(async () => {
-        let u = await fetchuser(username)
-        setcurrentUser(u)
-        let dbpayments = await fetchpayments(username)
-        setPayments(dbpayments)
-    }, [username])
-
-    // const getData = async () => {
+    // const getData = useCallback(async () => {
     //     let u = await fetchuser(username)
     //     setcurrentUser(u)
     //     let dbpayments = await fetchpayments(username)
     //     setPayments(dbpayments)
-    // }
+    // }, [username])
+
+    const getData = async () => {
+        let u = await fetchuser(username)
+        setcurrentUser(u)
+        let dbpayments = await fetchpayments(username)
+        setPayments(dbpayments)
+    }
 
     const pay = async (amount) => {
         
@@ -116,9 +116,9 @@ const PaymentPage = ({ username }) => {
             <Script src="https://checkout.razorpay.com/v1/checkout.js"></Script>
              
             <div className='cover w-full bg-red-50 relative'>
-                <image className='object-cover w-full h-48 md:h-[350px]' src={currentUser.coverpic} alt="" />
+                <img className='object-cover w-full h-48 md:h-[350px]' src={currentUser.coverpic} alt="" />
                 <div className='absolute -bottom-20 md:right-[45%] right-[38%] border-white border-2 overflow-hidden rounded-full size-36'>
-                    <image className='rounded-full object-cover size-36' width={128} height={128} src={currentUser.profilepic} alt="" />
+                    <img className='rounded-full object-cover size-36' width={128} height={128} src={currentUser.profilepic} alt="" />
                 </div>
             </div>
             <div className="info  flex justify-center items-center mt-24 pb-24 flex-col gap-2">
@@ -139,8 +139,8 @@ const PaymentPage = ({ username }) => {
                         <ul className='mx-5 text-lg '>
                             {payments.length == 0 && <li className='text-center'>No payments yet</li>}
                             {payments.map((p, i) => {
-                                return <li key={i} className='my-4 flex gap-2 items-center'>
-                                    <image width={35} src="avatar.gif" alt="user avatar" />
+                                return <li key={i}  className='my-4 flex gap-2 items-center'>
+                                    <img width={35} src="avatar.gif" alt="user avatar" />
                                     <span>
                                         {p.name} donated  <span className='font-bold'>₹{p.amount}</span> with a message &quot;{p.message}&quot;
                                     </span>

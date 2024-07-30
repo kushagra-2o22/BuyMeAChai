@@ -160,7 +160,11 @@ const Login = () => {
     <span>Continue with Apple</span>
 </button>
 
-
+<div className='mt-60'>
+<p id="moving-message" className="text-xl text-red-500 whitespace-nowrap overflow-hidden relative w-full inline-block box-border">
+          NOTE: Please login through GitHub, currently other login functionality disabled.
+        </p>
+</div>
 </div>
     </div>
   )

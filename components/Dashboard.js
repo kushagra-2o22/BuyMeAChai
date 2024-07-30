@@ -18,27 +18,27 @@ const Dashboard = () => {
         else {
             getData()
         }
-    }, [getData, router, session])
+    }, [ router, session])
 
-    // const getData = async () => {
-    //     let u = await fetchuser(session.user.name)
-    //     setform(u)
-    // }
-    const getData = useCallback(async () => {
-        if (session) {
-            let u = await fetchuser(session.user.name)
-            setform(u)
-        }
-    }, [session])
+    const getData = async () => {
+        let u = await fetchuser(session.user.name)
+        setform(u)
+    }
+    // const getData = useCallback(async () => {
+    //     if (session) {
+    //         let u = await fetchuser(session.user.name)
+    //         setform(u)
+    //     }
+    // }, [session])
 
     const handleChange = (e) => {
         setform({ ...form, [e.target.name]: e.target.value })
     }
 
     const handleSubmit = async (e) => {
-        e.preventDefault(); // Prevent default form submission
-        await updateProfile(form, session.user.name)
-        // let a = await updateProfile(e, session.user.name)
+        // e.preventDefault(); // Prevent default form submission
+        // await updateProfile(form, session.user.name)
+        let a = await updateProfile(e, session.user.name)
         toast.success('Profile updated 🪟!', {
             position: "top-right",
             autoClose: 5000,

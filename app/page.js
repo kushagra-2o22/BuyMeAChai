@@ -7,7 +7,7 @@ export default function Home() {
     <>
       <div className="flex justify-center flex-col gap-4 items-center text-white h-[44vh] px-5 md:px-0 text-xs md:text-base">
         <div className="font-bold md:text-5xl flex gap-4 justify-center items-center text-3xl ">Buy Me a Chai
-          <span><image className="invertImg" src="\tea.gif" width={52} alt="" /></span></div>
+          <span><img className="invertImg" src="\tea.gif" width={52} alt="" /></span></div>
         <p className="text-center md:text-left">
           A crowdfunding platform for developers. Get funded by your fans and followers. Start now!
         </p>
@@ -34,17 +34,17 @@ export default function Home() {
         </h2>
         <div className="flex gap-5 justify-around  ">
           <div className="item space-y-3 flex flex-col items-center justify-center">
-            <image className="bg-slate-400 rounded-full p-2 text-black" src="/man.gif" width={62} alt="" />
+            <img className="bg-slate-400 rounded-full p-2 text-black" src="/man.png" width={62} alt="" />
             <p className="font-bold text-center">Fund yourself</p>
             <p className="text-center">Your fans are available for you to help</p>
           </div>
           <div className="item space-y-3 flex flex-col items-center justify-center">
-            <image className="bg-slate-400 rounded-full p-2 text-black" src="/coin.gif" width={62} alt="" />
+            <img className="bg-slate-400 rounded-full p-2 text-black" src="/coin.gif" width={62} alt="" />
             <p className="font-bold text-center">Fund yourself</p>
             <p className="text-center">Your fans are available for you to help</p>
           </div>
           <div className="item space-y-3 flex flex-col items-center justify-center">
-            <image className="bg-slate-400 rounded-full p-2 text-black" src="/group.gif" width={62} alt="" />
+            <img className="bg-slate-400 rounded-full p-2 text-black" src="/people.gif" width={62} alt="" />
             <p className="font-bold text-center">Fans want to help</p>
             <p className="text-center">Your fans are available for you to help</p>
           </div>
@@ -61,6 +61,18 @@ export default function Home() {
         
         <div className="  w-[90%] h-[50vh] md:w-[50%] md:h-[50vh] lg:w-[50%] lg:h-[50vh] xl:w-[50%] xl:h-[50vh] ">
           <iframe className="w-full h-full" src="https://www.youtube.com/embed/zJec1826xiE?si=UwhdTtmQmDZhrT2Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div className="flex gap-8 ">
+        <a href="https://github.com/kushagra-2o22" target="_blank" rel="noopener noreferrer" className='bg-black border text-wrap my-5 rounded-full flex justify-between items-center'>
+  <img className='invert w-10 p-1 ' src="github.svg" alt="GitHub logo" />
+  <span className='font-bold px-2'>GitHub</span></a>
+  <a href="https://www.linkedin.com/in/kushagra-cs-singh/" target="_blank" rel="noopener noreferrer" className='bg-black border text-wrap  my-5 rounded-full flex justify-between items-center'>
+  <img className=' w-10 p-2 ' src="LinkedIn.webp" alt="LinkedIn logo" />
+  <span className='font-bold px-2'>LinkedIn</span></a>
+  <a href="https://x.com/Kushagra_28s" target="_blank" rel="noopener noreferrer" className='bg-black border text-wrap  my-5 rounded-full flex justify-between items-center'>
+  <img className=' w-10 p-1 ' src="x1.webp" alt="x logo" />
+  <span className='font-bold px-2'>Twitter/X</span>
+</a>
         </div>
 
       </div>
